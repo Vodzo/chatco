@@ -11,6 +11,7 @@
     "socket.io": "^1.4.8"
   },
   "devDependencies": {
+    "bower": "^1.7.9",
     "browser-sync": "^2.16.0",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.2",
@@ -20,7 +21,7 @@
     "gulp-jsmin": "^0.1.5",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
-    "less": "^2.7.1",
+    "less": "^2.7.1"
   },
   "repository": {
     "type": "git",
