@@ -4,13 +4,24 @@
   "description": "Slack help desk bot",
   "main": "chatco.js",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "atomicjs": "^2.1.0",
     "botkit": "^0.2.2",
     "connect": "^3.5.0",
     "express": "^4.14.0",
     "socket.io": "^1.4.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-include": "^2.3.1",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "less": "^2.7.1",
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Vodzo/chatco.git"

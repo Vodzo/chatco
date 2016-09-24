@@ -1,0 +1,26 @@
+{
+  "name": "chatco",
+  "description": "Slack help desk bot",
+  "main": "chatco.js",
+  "authors": [
+    "vodzo@zelic.info"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bots",
+    "chatbots",
+    "slack"
+  ],
+  "homepage": "https://github.com/Vodzo/chatco",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "atomicjs": "https://github.com/munkychop/atomicjs.git#^2.1.0"
+  }
+}
