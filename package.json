@@ -5,6 +5,7 @@
   "main": "chatco.js",
   "dependencies": {
     "atomicjs": "^2.1.0",
+    "body-parser": "^1.15.2",
     "botkit": "^0.2.2",
     "connect": "^3.5.0",
     "express": "^4.14.0",
