@@ -6,3 +6,14 @@
   </a>
   
 >WIP 0.0.1
+
+###Instalation
+```
+git clone https://github.com/Vodzo/chatco
+```
+```
+npm install
+```
+```
+bower install
+```
