@@ -1,6 +1,11 @@
-//=include ../bower_components/atomicjs/src/atomic.js
 (function() {
 	"use strict";
+
+	//=include ../bower_components/atomicjs/src/atomic.js
+	//=include ../node_modules/socket.io/node_modules/socket.io-client/socket.io.js
+	//=include ../node_modules/jquery/dist/jquery.js
+
+	jQuery.noConflict();
 
 	var scr = document.getElementById('chatco-script');
 	var options = {
@@ -43,4 +48,11 @@
 		console.log(form_data);
 		return false;
 	};
+
+	var socket = io();
+	socket.emit('refresh', 'wtf');
+
+	socket.on('poll', function(msg) {
+		
+	});
 })();

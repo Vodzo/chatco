@@ -42,8 +42,8 @@ bot.controller.storage.teams.all(function(err,teams) {
       	'retry': Infinity
       }).startRTM(function(err, bot) {
         if (err) {
-          //console.log('Error connecting bot to Slack:',err);
-          throw new Error('Could not connect to Slack');
+          console.log('Error connecting bot to Slack:',err);
+          //throw new Error('Could not connect to Slack');
         } else {
         	bot.channel_api = bot_global.controller.spawn({
         		'token': teams[t].incoming_webhook.token
