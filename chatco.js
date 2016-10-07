@@ -1,5 +1,5 @@
-var bot = require('./lib/bot.js');
-var server = require('./lib/server.js');
+var bot = require('./server/bot.js');
+var server = require('./server/server.js');
 
 server.app.post('/message', function(req, res) {
 	var name = req.body.message;

@@ -19,7 +19,7 @@ module.exports = {
             "port": 8080
         }
     },
-    "files": "./public/**.*",
+    "files": ['./public/**', './app/**'],
     "watchOptions": {},
     "server": {
         baseDir: "public",

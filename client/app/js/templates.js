@@ -1,0 +1,1 @@
+angular.module('chatco').run(['$templateCache', function($templateCache) {$templateCache.put('app/views/login.html','\n<div class="login" ng-controller="LoginController as login"> \n  <form ng-submit="login.submit(user)">\n    <input type="text" ng-model="user.username"/>\n    <input type="password" ng-model="user.password"/>\n  </form>\n</div>');}]);
