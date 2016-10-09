@@ -2,6 +2,7 @@ var express     = require('express');
 var app         = express();
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
+var tungus      = require('tungus');
 var mongoose    = require('mongoose');
 var passport	  = require('passport');
 var config      = require('./config/database'); // get db config file
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
  
 // log to console
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
  
 // Use the passport package in our application
 app.use(passport.initialize());
@@ -44,7 +45,7 @@ console.log('There will be dragons: http://localhost:' + port);
 // connect to database
 mongoose.connect(config.database);
 mongoose.Promise = require('bluebird');
- 
+
 // pass passport for configuration
 require('./config/passport')(passport);
  

@@ -15,11 +15,13 @@
     "express": "^4.14.0",
     "jquery": "^3.1.1",
     "jwt-simple": "^0.5.0",
-    "mongoose": "^4.6.2",
+    "mongoose": "^3.8.40",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.1.0",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "tingodb": "^0.4.2",
+    "tungus": "0.0.5"
   },
   "devDependencies": {
     "bower": "^1.7.9",
