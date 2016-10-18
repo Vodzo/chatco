@@ -14,20 +14,20 @@
  */
 module.exports = {
     "ui": {
-        "port": 3001,
+        "port": 3005,
         "weinre": {
             "port": 8080
         }
     },
-    "files": ['./public/**', './app/**'],
+    "files": ['./server/public/**', './server/app/**'],
     "watchOptions": {},
     "server": {
-        baseDir: "public",
+        baseDir: "server/public",
         directory: true,
         index: "index.html"
     },
     "proxy": false,
-    "port": 3002,
+    "port": 3006,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
@@ -44,7 +44,7 @@ module.exports = {
     "logConnections": false,
     "logFileChanges": true,
     "logSnippet": true,
-    "rewriteRules": false,
+//    "rewriteRules": false,
     "open": "local",
     "browser": "default",
     "cors": false,

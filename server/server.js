@@ -35,7 +35,7 @@ app.get('/', function(req, res){
 });
 */
 
-app.use(express.static(__dirname + '/../public'));
+app.use(express.static(__dirname + '/public'));
 
 // app.use(function (req, res, next) {
 //     // Website you wish to allow to connect

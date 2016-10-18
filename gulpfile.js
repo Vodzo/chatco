@@ -65,4 +65,4 @@ gulp.task('client:watch', function() {
     gulp.watch(config.client.js.dev, ['client:js']);
 });
 
-gulp.task('default', ['server:views' ,'server:js', 'server:less', 'server:watch', 'client:views', 'client:js', 'client:less', 'client:watch']);
+gulp.task('default', ['server:views' ,'server:js', 'server:less', 'server:watch', 'client:views', 'client:js', 'client:less', 'client:watch', 'browser-sync']);

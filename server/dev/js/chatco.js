@@ -12,7 +12,7 @@
 		header : scr.getAttribute('data-header') ? scr.getAttribute('data-header') : 'Chatco chat'
 	};
 
-	var html = '<div class="chatco"><div class="header">' + options.header + '</div><div class="message-box"><div class="message">bla bla</div><div class="message">bla bla</div><div class="input"><form id="chatco-form" method="post" action="/message"><input type="text" value="" name="message" class="message-input" placeholder="Upiši poruku" /></form></div></div></div>';
+	var html = '<div class="chatco-toggler">!</div><div class="chatco hide"><div class="header"><div class="header-msg">' + options.header + '</div><div class="chatco-close">X</div></div><div class="message-box"><div class="message">bla bla</div><div class="message">bla bla</div><div class="input"><form autocomplete="off" id="chatco-form" method="post" action="/message"><input type="text" value="" name="message" class="message-input" placeholder="Upiši poruku" /></form></div></div></div>';
 	var body = document.getElementsByTagName("body")[0];
 	var el =  document.createElement("div")
 	el.id="chatco";
@@ -48,6 +48,16 @@
 		console.log(form_data);
 		return false;
 	};
+
+	jQuery(document).on('click', '.chatco-toggler', function() {
+		jQuery(this).addClass('hide');
+		jQuery('.chatco').removeClass('hide');
+	});
+
+	jQuery(document).on('click', '.chatco-close', function() {
+		jQuery('.chatco-toggler').removeClass('hide');
+		jQuery('.chatco').addClass('hide');
+	});
 
 	var socket = io();
 	socket.emit('refresh', 'wtf');
