@@ -2,10 +2,68 @@ var bot = require('./server/bot.js');
 var server = require('./server/server.js');
 
 server.app.post('/message', function(req, res) {
-	var name = req.body.message;
-
+	var message = req.body.message;
+  var userid = req.body.userid;
+  var channel_name = 'chatco-' + userid;
 	for(var x in _bots) {
-		_bots[x].channel_api.api.channels.create({name:name}, function(err, res) {
+
+    var message_channel = function(message, channel_id) {
+      _bots[x].api.chat.postMessage({
+          channel: channel_id,
+          text: message
+      });
+
+      _bots[x].api.chat.postMessage({
+          channel: _bots[x].default_channel_id,
+          text: message,
+          "attachments": [
+              {
+                  "text": "Choose action",
+                  "fallback": "You are unable to choose action",
+                  "callback_id": "handle_message",
+                  "color": "#3AA3E3",
+                  "attachment_type": "default",
+                  "actions": [
+                      {
+                          "name": "ignore",
+                          "text": "Ignore",
+                          "type": "button",
+                          "value": "ignore"
+                      },
+                      {
+                          "name": "chat",
+                          "text": "Chat",
+                          "type": "button",
+                          "value": "chat"
+                      }
+                  ]
+              }
+          ]
+      });
+    }
+
+    _bots[x].channel_api.api.channels.list({}, function(err, res) {
+      var channels = res.channels;
+      var channel_exists = false;
+      var channel_id = false;
+      for(var y in channels) {
+        if(channels[y].name == channel_name) {
+          channel_exists = true;
+          channel_id = channels[y].id;
+          if(channels[y].is_archived) {
+            _bots[x].channel_api.api.channels.unarchive({channel: channel_id});
+          }
+        }
+      }
+
+      if(!channel_exists) {
+        _bots[x].channel_api.api.channels.create({name:channel_name}, function(err, res) {
+          channel_id = res.channel.id;
+          message_channel(message, channel_id);
+        });    
+      } else {
+          message_channel(message, channel_id);
+      }
     });
 	}
 });
@@ -48,6 +106,7 @@ bot.controller.storage.teams.all(function(err,teams) {
         	bot.channel_api = bot_global.controller.spawn({
         		'token': teams[t].incoming_webhook.token
         	});
+          bot.default_channel_id = teams[t].incoming_webhook.channel_id
           	trackBot(bot);
         }
       });

@@ -17575,10 +17575,11 @@
 
 	var scr = document.getElementById('chatco-script');
 	var options = {
-		header : scr.getAttribute('data-header') ? scr.getAttribute('data-header') : 'Chatco chat'
+		header : scr.getAttribute('data-header') ? scr.getAttribute('data-header') : 'Chatco chat',
+		userid : scr.getAttribute('data-userid') ? scr.getAttribute('data-userid') : 'fail'
 	};
 
-	var html = '<div class="chatco-toggler">!</div><div class="chatco hide"><div class="header"><div class="header-msg">' + options.header + '</div><div class="chatco-close">X</div></div><div class="message-box"><div class="message">bla bla</div><div class="message">bla bla</div><div class="input"><form autocomplete="off" id="chatco-form" method="post" action="/message"><input type="text" value="" name="message" class="message-input" placeholder="Upiši poruku" /></form></div></div></div>';
+	var html = '<div class="chatco-toggler">!</div><div class="chatco hide"><div class="header"><div class="header-msg">' + options.header + '</div><div class="chatco-close">X</div></div><div class="message-box"><div class="message">bla bla</div><div class="message">bla bla</div><div class="input"><form autocomplete="off" id="chatco-form" method="post" action="/message"><input type="text" value="" name="message" class="message-input" placeholder="Upiši poruku" /><input type="hidden" name="userid" value="' + options.userid + '" /></form></div></div></div>';
 	var body = document.getElementsByTagName("body")[0];
 	var el =  document.createElement("div")
 	el.id="chatco";
@@ -17611,7 +17612,6 @@
 		.error(function (data, xhr) {
 
 		});
-		console.log(form_data);
 		return false;
 	};
 
